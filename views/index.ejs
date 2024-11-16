@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cheesteaks</title>
+    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Cheesesteak Fever</h1>
+      <h2>Who's the hottest right now?</h2>
+    </header>
+    <main>
+      
+<p>**Ratings are consumer-submitted, showing total votes as numbers and average ratings as stars. Click the arrow to view the location on maps.</p>
+      
+
+      <ul class="messages">
+        <% for(var i = 0; i < messages.length; i++) { %>
+        <li class="message">
+          <div class="location">
+            <a
+              href="https://www.google.com/maps/search/<%= encodeURIComponent(messages[i].name + messages[i].location + ' cheesesteaks ') %>"
+              target="_blank">
+              <i class="fa fa-location-arrow"></i>
+            </a>
+            <span>
+              <a
+                href="https://www.google.com/maps/search/<%= encodeURIComponent(messages[i].name + messages[i].location + ' cheesesteaks ') %>"
+                target="_blank">
+
+              </a>
+            </span>
+          </div>
+
+          <span class="name votes"><%= messages[i].name %></span>
+          <span class="location votes"><%= messages[i].location %></span>
+          <span class="thumbup votes"><%= messages[i].thumbUp + messages[i].thumbDown
+            %></span>
+          <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+          <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+          <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+          <!-- Create a Google Maps link -->
+        </li>
+
+        <li>
+          <% for(var q = 0; q < messages[i].thumbUp / (messages[i].thumbUp +
+          messages[i].thumbDown); q += .20) { %>
+          <span><i class="fa fa-star" aria-hidden="true"></i></span>
+          <% } %>
+          <% } %>
+        </li>
+      </ul>
+    </main>
+    <footer class="fdiv">
+      <h3>If you do not see your fav on the list above, feel free to add it!
+      
+      </h3>
+
+      <form action="/messages" method="POST">
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="location" name="location">
+        <button type="submit">Submit</button>
+      </form>
+    </footer>
+    <script src="main.js"></script>
+
+  </body>
+</html>
