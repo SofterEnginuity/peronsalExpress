@@ -30,20 +30,20 @@ app.get('/', (req, res) => {// default page happen on refresh
     console.log(ratings)
     res.render('index.ejs', {messages: result, ratings: ratings})
   })
-})
+});
 app.post('/messages', (req, res) => {// this is taking the form and sending it to the database
   db.collection('messages').insertOne({name: req.body.name, location: req.body.location, thumbUp: 0, thumbDown: 0}, (err, result) => {
     if (err) return console.log(err)//^ this is telling the database to add one
     console.log('saved to database')
     res.redirect('/')//refrsh, back to homepage
   })
-})
+});
 
 
     app.put('/messages', (req, res) => {
       console.log(req.body)
         db.collection('messages')
-        .findOneAndUpdate({name: req.body.name, location: req.body.location,}, {
+        .findOneAndUpdate({name: req.body.name, location: req.body.location}, {
           $inc: {
             thumbUp: 1 || 0
           }

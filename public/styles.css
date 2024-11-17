@@ -5,10 +5,10 @@ body{
     align-items: center;
     text-align:center;
     height:100vh;
-    margin-top:85px;
+ 
 
 }header{
-  height:10vh;
+
   background-color:#081964;
   width:100%;
   color:white;
@@ -21,6 +21,7 @@ h1{
   display:flex;
   align-items:center;
 }
+
 h2{
   margin:2px;
   padding:1px;

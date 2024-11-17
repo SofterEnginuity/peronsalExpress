@@ -5,18 +5,19 @@ var trash = document.getElementsByClassName("fa-trash-o");
 
 Array.from(thumbUp).forEach(function(element) {
   element.addEventListener('click', function(){
-let thumbParent =  element.closest('li')
+    let thumbParent =  element.closest('li')
     const name =  thumbParent.querySelector('.name').innerText
-    const location = thumbParent.querySelector('.location').innerText
-    const thumbup = thumbParent.querySelector('.thumbup').innerText
-  console.log(thumbup)
+    const location = thumbParent.querySelector('.locationT').innerText
+
+    const thumbUp= parseFloat(thumbParent.querySelector('.thumbup').innerText)
+
     fetch('messages', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         'name': name,
         'location': location,
-        'thumbup': thumbup
+        'thumbup': thumbUp
       })
     })
     .then(response => {
@@ -31,9 +32,10 @@ let thumbParent =  element.closest('li')
 
 Array.from(thumbDown).forEach(function(element) {
   element.addEventListener('click', function(){
-    const name = this.parentNode.parentNode.childNodes[3].innerText
-    const location = this.parentNode.parentNode.childNodes[5].innerText
-    const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
+    let thumbParent =  element.closest('li')
+    const name =  thumbParent.querySelector('.name').innerText
+    const location = thumbParent.querySelector('.locationT').innerText
+    const thumbDown = parseFloat(thumbParent.querySelector('.thumbup').innerText)
     console.log(name)
     console.log(location)
     console.log(thumbDown)
@@ -60,8 +62,8 @@ Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
           let thumbParent =  element.closest('li')
         const name =  thumbParent.querySelector('.name').innerText
-        const location = thumbParent.querySelector('.location').innerText
-        const thumbup = thumbParent.querySelector('.thumbup').innerText
+        const location = thumbParent.querySelector('.locationT').innerText
+    console.log(name,location)
         fetch('messages', {
           method: 'delete',
           headers: {
@@ -69,7 +71,7 @@ Array.from(trash).forEach(function(element) {
           },
           body: JSON.stringify({
             'name': name,
-            'location': location,
+            'location': location
           
           })
         }).then(function (response) {
