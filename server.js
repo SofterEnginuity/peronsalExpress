@@ -5,10 +5,11 @@ const app = express()
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
+var port = process.env.PORT || 4000;
 var db, collection;
 var configDB = require('./config/database.js');
 
-app.listen(4000, () => {
+app.listen(port, () => {
     MongoClient.connect(configDB.url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
