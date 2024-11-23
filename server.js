@@ -9,13 +9,15 @@ var port = process.env.PORT || 4000;
 var db, collection;
 var configDB = require('./config/database.js');
 
-app.listen(port, () => {
+
     MongoClient.connect(configDB.url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
         }
         db = client.db(configDB.dbName);
         console.log("Connected to `" + configDB.dbName + "`!");
+        app.listen(port, () => {
+        console.log(`Server running on port ${port}`)
     });
 });
 
