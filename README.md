@@ -19,3 +19,12 @@ HTML, CSS, Javascript, Node, Express, MongoDB
 ## Lessons Learned:
 
 This is one of my first full stack projects, integrating a link for directions and grabbing it from the server was a little tricky but ultimately this one was pretty cool. Plus, I got to come across quite a few Cheesesteak places I had never heard of!
+
+
+
+
+## Installation/Usage
+1. Clone repo
+2. run `npm install`
+3. run `npm run savage`
+4. Navigate to `localhost:4000`
