@@ -26,5 +26,5 @@ This is one of my first full stack projects, integrating a link for directions a
 ## Installation/Usage
 1. Clone repo
 2. run `npm install`
-3. run `npm run savage`
+3. run `node server.js`
 4. Navigate to `localhost:4000`
